@@ -37,7 +37,6 @@ services:
 
     grafana:
         image: grafana/grafana
-        user: root
         depends_on:
             - prometheus
         ports:
