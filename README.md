@@ -6,3 +6,15 @@ Prometheus is available at [http://127.0.0.1:9090](http://127.0.0.1:9090). Here 
 Active exporters: [http://127.0.0.1:9090/targets](http://127.0.0.1:9090/targets)
 BlackBox exporter: [http://127.0.0.1:9115](http://127.0.0.1:9115)
 All metrix provided by BlackBox exporter: [http://127.0.0.1:9115/metrics](http://127.0.0.1:9115/metrics)
+
+To get Grafana container work properly create a ./grafana/provisioning/ directory and change its ownership to `grafana` user as follows:
+```
+sudo chown -R 472:472 grafana/
+```
+Otherwise Grafana container will not have writing permissions to its /var/lib/grafana directory.
+
+When setting Prometheus as a data source for Grafana specify its URL as:
+```
+http://prometheus:9090
+```
+It is important to have `http://` and `prometheus` as a name of a target host. Otherwise connection will not be established.
