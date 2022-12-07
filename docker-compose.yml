@@ -34,3 +34,16 @@ services:
         volumes:
             - ./blackbox:/config
         command: --config.file=/config/blackbox.yml
+
+    grafana:
+        image: grafana/grafana
+        user: root
+        depends_on:
+            - prometheus
+        ports:
+            - 127.0.0.1:3000:3000
+        volumes:
+            - ./grafana:/var/lib/grafana
+            - ./grafana/provisioning/:/etc/grafana/provisioning/
+        restart: always
+        command: chown -R root:root /etc/grafana && chmod -R a+r /etc/grafana && chown -R grafana:grafana /var/lib/grafana && chown -R grafana:grafana /usr/share/grafana
