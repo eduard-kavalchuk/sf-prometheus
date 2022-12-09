@@ -11,7 +11,8 @@ To get Grafana container work properly create a ./grafana/provisioning/ director
 ```
 sudo chown -R 472:472 grafana/
 ```
-Otherwise Grafana container will not have writing permissions to its /var/lib/grafana directory.
+Otherwise Grafana container will not have writing permissions to its /var/lib/grafana directory. 
+Grafana is available at [http://127.0.0.1:3000](http://127.0.0.1:3000).
 
 When setting Prometheus as a data source for Grafana specify its URL as:
 ```
