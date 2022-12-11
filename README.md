@@ -19,3 +19,8 @@ When setting Prometheus as a data source for Grafana specify its URL as:
 http://prometheus:9090
 ```
 It is important to have `http://` and `prometheus` as a name of a target host. Otherwise connection will not be established.
+
+To get Alertmanager working properly set onership to `alertmanager` directory and its content to a `nobody` user like this:
+```
+sudo chown -R nobody:nogroup ./alertmanager
+```
